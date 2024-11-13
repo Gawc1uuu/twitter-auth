@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:15
+    container_name: twitter-container
+    environment:
+      POSTGRES_USER: example_user
+      POSTGRES_PASSWORD: example_password
+      POSTGRES_DB: twitter-db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  backend:
